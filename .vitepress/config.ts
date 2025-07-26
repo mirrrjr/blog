@@ -17,9 +17,9 @@ export default defineConfig({
         website: 'https://mirrrjr.vercel.app',
         // Comment repository address https://giscus.app/ Please overwrite after initializing according to the official instructions
         comment: {
-            repo: 'airene/vitepress-blog-pure',
-            repoId: 'MDEwOlJlcG9zaXRvcnkzODIyMjY5Nzg',
-            categoryId: 'DIC_kwDOFshSIs4CpZga'
+            repo: 'mirrrjr/blog',
+            repoId: 'R_kgDOPS_w_w',
+            categoryId: 'DIC_kwDOPS_w_84CtbZn'
         },
         nav: [
             { text: 'Home', link: '/' },
