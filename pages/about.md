@@ -12,7 +12,7 @@ comment: true
 
 -   👋 Hi, I'm MIRRR
 -   🚀️ I'm currently working as a freelancer
--   📮️ How to reach me: [My Github](https://github.com/mirrrrjr)
+-   📮️ How to reach me: [My Github](https://github.com/mirrrjr)
 -   📖 My motto: *Never stop learning, because life never stops teaching.*
 
 
