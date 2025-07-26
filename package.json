@@ -1,0 +1,38 @@
+{
+  "name": "mirrr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vitepress dev --host 0.0.0.0",
+    "build": "cross-env NODE_ENV=production vitepress build",
+    "preview": "cross-env NODE_ENV=production vitepress preview",
+    "deploy": "bash scripts/deploy.sh"
+  },
+  "keywords": [],
+  "author": "mirrr <mirrrrrr@yahoo.com>",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^22.15.32",
+    "@typescript-eslint/eslint-plugin": "^8.34.1",
+    "@typescript-eslint/parser": "^8.34.1",
+    "@typescript-eslint/types": "^8.34.1",
+    "@vue/compiler-sfc": "^3.5.17",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.25.5",
+    "eslint": "^9.29.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.5.0",
+    "eslint-plugin-vue": "^9.33.0",
+    "fs-extra": "^11.3.0",
+    "globby": "^14.1.0",
+    "gray-matter": "^4.0.3",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3",
+    "vitepress": "^1.6.3",
+    "vite": "^5.4.19",
+    "vitepress-plugin-comment-with-giscus": "^1.1.15"
+  }
+}
