@@ -65,12 +65,6 @@
 </template>
 
 <style>
-.container {
-  width: 100% !important;
-  max-width: 600px !important;
-  margin: 0 auto !important;
-}
-
 .links {
   display: flex;
   justify-content: center;
