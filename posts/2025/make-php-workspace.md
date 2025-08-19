@@ -18,7 +18,7 @@ description: Create a PHP workspace with MySQL, PostgreSQL, Nginx, and Laravel u
 
 ## 1. First, we will install the latest version of PHP available at this time.
 
-### Add ondrej/php PPA/DPA
+### Add ondrej/php DPA
 
 Because PHP 8.4 packages are not available in any of the current Debian or Ubuntu software repositories, the PHP packages must come from another repo.
 
@@ -44,7 +44,7 @@ sudo apt install php8.4-cli php8.4-fpm
 ```
 
 ### Install PHP Extensions
-```
+```bash
 sudo apt install php8.4-common php8.4-{bcmath,bz2,curl,gd,gmp,intl,mbstring,opcache,readline,xml,zip,mysql,pgsql,redis,imagick,memcached,soap,xmlrpc,exif,ftp,ldap,sodium}
 ```
 
@@ -92,8 +92,11 @@ sudo -u postgres psql
 
 ```sql
 CREATE USER myapp_user WITH PASSWORD 'strong_password';
+
 CREATE DATABASE myapp_db WITH OWNER myapp_user;
+
 GRANT ALL PRIVILEGES ON DATABASE myapp_db TO myapp_user;
+
 \q
 ```
 
