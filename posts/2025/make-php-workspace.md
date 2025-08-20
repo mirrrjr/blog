@@ -1,7 +1,7 @@
 ---
 date: 2025-08-19
 title: Make PHP Workspace
-category: web
+category: backend
 tags:
 - php
 - mysql
