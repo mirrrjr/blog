@@ -96,15 +96,13 @@ This configuration run a multi container environment including Php laravel, mysq
 ```bash
 # docker-compose.yml
 
-version: '3'
 services:
-
   #PHP
   app:
     build:
       context: .
       dockerfile: Dockerfile
-    image: ilosrim/php
+    image: php
     container_name: app
     restart: unless-stopped
     tty: true
@@ -125,25 +123,28 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - "8989:80"
+      - "8080:80"
       - "443:443"
     volumes:
       - ./:/var/www
       - ./nginx/:/etc/nginx/conf.d/
+      - ./storage/app/public:/var/www/storage/app/public
     networks:
       - app-network
 
   #MySQL
   db:
-    image: mysql:8.0.37
+    image: mysql:8.0
     container_name: db
     restart: unless-stopped
     tty: true
     ports:
       - "3306:3306"
     environment:
-      MYSQL_DATABASE: laravel
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: biolab
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_USER: lara
+      MYSQL_PASSWORD: 1998
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     volumes:
@@ -151,6 +152,24 @@ services:
       - ./mysql/my.cnf:/etc/mysql/my.cnf
     networks:
       - app-network
+  pma:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: pma
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: "123456"
+    ports:
+      - "8000:80"
+    links:
+      - db:db
+
+  node:
+    image: node:22
+    working_dir: /var/www
+    volumes:
+        - .:/var/www
+    command: sh -c "npm install && npm run build"
 
 #Networks
 networks:
@@ -187,7 +206,7 @@ Add these Configurations in Dockerfile.
 “CMD” define to run php-fpm
 
 ```bash
-FROM php:8.3-fpm
+FROM php:8.4-fpm
 
 # Copy composer.lock and composer.json
 COPY composer.lock composer.json /var/www/
@@ -200,7 +219,7 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     libpng-dev \
     libjpeg62-turbo-dev \
-    libfreetype6-dev \
+    libfreetype6 \
     locales \
     zip \
     jpegoptim optipng pngquant gifsicle \
@@ -210,13 +229,15 @@ RUN apt-get update && apt-get install -y \
     curl \
     libonig-dev \
     libzip-dev \
-    libgd-dev
+    libgd-dev \
+    libicu-dev
+
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 #Mine
 
 # Install extensions
-RUN docker-php-ext-install pdo_mysql mbstring zip exif pcntl
+RUN docker-php-ext-install pdo_mysql mbstring zip exif pcntl intl
 RUN docker-php-ext-configure gd --with-external-gd
 RUN docker-php-ext-install gd
 
@@ -316,18 +337,18 @@ Step 06:
 Final Step is to build the image and run it.
 
 ```bash
-sudo docker-compose build
+sudo docker compose build
 
-sudo docker-compose up -d
+sudo docker compose up -d
 ```
 
-Now we have php laravel nginx and mysql containers up and running we can check it by using `docker ps`.
+Now we have php laravel nginx and mysql containers up and running we can check it by using `docker compose ps`.
 
 ![docker ps](https://miro.medium.com/v2/resize:fit:720/format:webp/1*GPohulMmh2OCF85XXFosnw.png)
 
 Final Result:
 
-Now our laravel application is up and running, we can access it from our port 8989 as we defined in our dokcer-compose file. `http://localhost:8989`
+Now our laravel application is up and running, we can access it from our port 8080 as we defined in our dokcer-compose file. `http://localhost:8080`
 
 ![Localhost](https://miro.medium.com/v2/resize:fit:720/format:webp/1*wX-vgKxi_880RNM697tNlQ.png)
 
