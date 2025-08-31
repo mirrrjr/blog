@@ -6,7 +6,7 @@
 
     <p align="center">
       <samp class="links">
-        <a href="https://mirrrjr.vercel.app/">blog</a>
+        <a href="https://mirrr.uz">blog</a>
         <span>|</span>
         <a href="https://www.linkedin.com/in/mirrrjr/">linkedin</a>
         <span>|</span>
@@ -20,6 +20,7 @@
           <tr>
             <th>Language</th>
             <th>Backend</th>
+            <th>Frontend</th>
             <th>DataBase</th>
             <th>Extra</th>
           </tr>
@@ -37,14 +38,20 @@
               <img class="table_img" src="https://skillicons.dev/icons?i=actix" />
             </td>
             <td align="center">
-              <img class="table_img" src="https://skillicons.dev/icons?i=mongodb" />
-              <img class="table_img" src="https://skillicons.dev/icons?i=postgresql" />
+              <img class="table_img" src="https://skillicons.dev/icons?i=react" />
+              <img class="table_img" src="https://skillicons.dev/icons?i=angular" />
+              <img class="table_img" src="https://skillicons.dev/icons?i=vue" />
+            </td>
+
+            <td align="center">
               <img class="table_img" src="https://skillicons.dev/icons?i=mysql" />
+              <img class="table_img" src="https://skillicons.dev/icons?i=postgresql" />
+              <img class="table_img" src="https://skillicons.dev/icons?i=mongodb" />
             </td>
             <td align="center">
               <img class="table_img" src="https://skillicons.dev/icons?i=linux" />
               <img class="table_img" src="https://skillicons.dev/icons?i=git" />
-              <img class="table_img" src="https://skillicons.dev/icons?i=nix" />
+              <img class="table_img" src="https://skillicons.dev/icons?i=docker" />
             </td>
           </tr>
         </tbody>
