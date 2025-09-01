@@ -36,7 +36,11 @@ export default defineConfig({
     outline: {
       label: "Article Summary",
     },
-    socialLinks: [{ icon: "github", link: "https://github.com/mirrrjr" }],
+    socialLinks: [
+      { icon: "github", link: "https://github.com/mirrrjr" },
+      { icon: "telegram", link: "https://t.me/mirrrjr" },
+      { icon: "x", link: "https://x.com/mirrrjr" },
+    ],
   } as any,
 
   srcExclude: isProd
