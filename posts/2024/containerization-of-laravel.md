@@ -42,7 +42,7 @@ To Create a new project run this commands in your terminal:
 Here “blog” is the name of the project you can change it.
 
 ```bash
-composer create-project --prefer-dist laravel/laravel blog
+composer create-project --prefer-dist laravel/laravel biolab
 ```
 
 OR to clone a project from github you can use this command:
@@ -109,9 +109,9 @@ services:
     environment:
       SERVICE_NAME: app
       SERVICE_TAGS: dev
-    working_dir: /var/www
+    working_dir: /var/www/biolab
     volumes:
-      - ./:/var/www
+      - ./:/var/www/biolab
       - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - app-network
@@ -126,7 +126,7 @@ services:
       - "8080:80"
       - "443:443"
     volumes:
-      - ./:/var/www
+      - ./:/var/www/biolab
       - ./nginx/:/etc/nginx/conf.d/
       - ./storage/app/public:/var/www/storage/app/public
     networks:
@@ -158,17 +158,19 @@ services:
     environment:
       PMA_HOST: db
       PMA_PORT: 3306
-      MYSQL_ROOT_PASSWORD: "123456"
+      MYSQL_ROOT_PASSWORD: 1234
     ports:
       - "8000:80"
-    links:
-      - db:db
+    depends_on:
+        - db
+    networks:
+        - app-network
 
   node:
     image: node:22
-    working_dir: /var/www
+    working_dir: /var/www/biolab
     volumes:
-        - .:/var/www
+        - .:/var/www/biolab
     command: sh -c "npm install && npm run build"
 
 #Networks
@@ -212,7 +214,7 @@ FROM php:8.4-fpm
 COPY composer.lock composer.json /var/www/
 
 # Set working directory
-WORKDIR /var/www
+WORKDIR /var/www/biolab
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
@@ -249,10 +251,10 @@ RUN groupadd -g 1000 www
 RUN useradd -u 1000 -ms /bin/bash -g www www
 
 # Copy existing application directory contents
-COPY . /var/www
+COPY . /var/www/biolab
 
 # Copy existing application directory permissions
-COPY --chown=www:www . /var/www
+COPY --chown=www:www . /var/www/biolab
 
 # Change current user to www
 USER www
@@ -277,11 +279,35 @@ Add the following nginx configurations in `default.conf`
 ```bash
 server {
     listen 80;
+    listen [::]:80;
+    server_name localhost;
+    root /var/www/biolab/public;
+
+    add_header X-Frame-Options "SAMEORIGIN";
+
+    add_header X-Content-Type-Options "nosniff";
+
     index index.php index.html;
+
+    charset utf-8;
+
+    client_max_body_size 100M;
     error_log  /var/log/nginx/error.log;
     access_log /var/log/nginx/access.log;
-    root /var/www/public;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+        gzip_static on;
+    }
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+
+    location = /robots.txt  { access_log off; log_not_found off; }
+
+    error_page 404 /index.php;
+
     location ~ \.php$ {
+        client_max_body_size 100M;
         try_files $uri =404;
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
         fastcgi_pass app:9000;
@@ -290,9 +316,10 @@ server {
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         fastcgi_param PATH_INFO $fastcgi_path_info;
     }
-    location / {
-        try_files $uri $uri/ /index.php?$query_string;
-        gzip_static on;
+
+
+    location ~ /\.(?!well-known).* {
+        deny all;
     }
 }
 ```
@@ -312,8 +339,8 @@ vim local.ini
 Add this piece of code in `local.ini`
 
 ```bash
-upload_max_filesize=40M
-post_max_size=40M
+upload_max_filesize=100M
+post_max_size=100M
 ```
 
 mysql/my.cnf
