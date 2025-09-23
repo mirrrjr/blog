@@ -14,7 +14,7 @@ export default defineConfig({
   ignoreDeadLinks: true,
   themeConfig: {
     posts: await getPosts(pageSize),
-    website: "https://t.me/mirrrjr",
+    website: "https://mirrrjr.vercel.app",
     // Comment repository address https://giscus.app/ Please overwrite after initializing according to the official instructions
     comment: {
       repo: "mirrrjr/blog",
@@ -27,7 +27,6 @@ export default defineConfig({
       { text: "Archives", link: "/pages/archives" },
       { text: "Tags", link: "/pages/tags" },
       { text: "About", link: "/pages/about" },
-      { text: "Secret", link: "/pages/secret" },
     ],
     search: {
       provider: "local",
@@ -36,11 +35,7 @@ export default defineConfig({
     outline: {
       label: "Article Summary",
     },
-    socialLinks: [
-      { icon: "github", link: "https://github.com/mirrrjr" },
-      { icon: "telegram", link: "https://t.me/mirrrjr" },
-      { icon: "x", link: "https://x.com/mirrrjr" },
-    ],
+    socialLinks: [{ icon: "github", link: "https://github.com/mirrrjr" }],
   } as any,
 
   srcExclude: isProd

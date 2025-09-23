@@ -3,12 +3,12 @@ date: 2025-08-19
 title: Make PHP Workspace
 category: backend
 tags:
-- php
-- mysql
-- postgresql
-- nginx
-- laravel
-- composer
+    - php
+    - mysql
+    - postgresql
+    - nginx
+    - laravel
+    - composer
 description: Create a PHP workspace with MySQL, PostgreSQL, Nginx, and Laravel using Docker.
 ---
 
@@ -27,12 +27,19 @@ Ondřej Surý maintains a package archive that contains compiled binaries of all
 Once this repository is added, the initial installation and updates can be done with the standard apt commands.
 
 ```bash
+# for debian
+
 sudo apt-get update
 sudo apt-get -y install lsb-release ca-certificates curl apt-transport-https
 sudo curl -sSLo /tmp/debsuryorg-archive-keyring.deb https://packages.sury.org/debsuryorg-archive-keyring.deb
 sudo dpkg -i /tmp/debsuryorg-archive-keyring.deb
 sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
 sudo apt-get update
+
+# for ubuntu
+
+sudo LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php # Press enter to confirm.
+sudo apt update
 ```
 
 ### PHP CLI and PHP-FPM (recommended)
@@ -44,21 +51,25 @@ sudo apt install php8.4-cli php8.4-fpm
 ```
 
 ### Install PHP Extensions
+
 ```bash
 sudo apt install php8.4-common php8.4-{bcmath,bz2,curl,gd,gmp,intl,mbstring,opcache,readline,xml,zip,mysql,pgsql,redis,imagick,memcached,soap,xmlrpc,exif,ftp,ldap,sodium}
 ```
 
 ## 2. Install Nginx
+
 ```bash
 sudo apt install nginx nginx-extras
 ```
 
 ## 3. Install MySQL (users using distros other than debian, type "mysql-server" instead of "mariadb-server")
+
 ```bash
 sudo apt install mariadb-server
 ```
 
 ### Create a custom user as desired.
+
 ```bash
 sudo mysql -u root -p
 ```
@@ -76,16 +87,19 @@ exit
 ```
 
 To connect:
+
 ```bash
 mysql -u myapp_user -p myapp_db
 ```
 
 ## 4. Install PostgreSQL
+
 ```bash
 sudo apt install postgresql postgresql-contrib
 ```
 
 ### Create a custom user as desired.
+
 ```bash
 sudo -u postgres psql
 ```
@@ -101,31 +115,37 @@ GRANT ALL PRIVILEGES ON DATABASE myapp_db TO myapp_user;
 ```
 
 To connect:
+
 ```bash
 psql -U myapp_user -d myapp_db
 ```
 
 ## 5. Install Composer
+
 ```bash
 sudo apt install composer
 ```
 
 ## 6. Install Laravel
+
 ```bash
 composer global require laravel/installer
 ```
 
 ## 7. Install phpMyAdmin (optional)
+
 ```bash
 sudo apt install phpmyadmin
 ```
 
 ### Configure Nginx to use phpMyAdmin
+
 ```bash
 sudo nano /etc/nginx/sites-available/default
 ```
 
 Add the following location block inside the `server` block:
+
 ```nginx
 location /phpmyadmin {
 		alias /usr/share/phpmyadmin/;
@@ -146,8 +166,7 @@ location /phpmyadmin {
 ```
 
 ### Restart Nginx
+
 ```bash
 sudo systemctl restart nginx
 ```
-
-
