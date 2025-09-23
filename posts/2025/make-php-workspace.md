@@ -65,7 +65,11 @@ sudo apt install nginx nginx-extras
 ## 3. Install MySQL (users using distros other than debian, type "mysql-server" instead of "mariadb-server")
 
 ```bash
+# for debian
 sudo apt install mariadb-server
+
+# for ubuntu
+sudo apt install mysql-server
 ```
 
 ### Create a custom user as desired.
