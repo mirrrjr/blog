@@ -472,7 +472,7 @@ Let's now pull all of the dependencies.
 
 Type composer install.
 
-![composer install]("https://mattkomarnicki.com/resources/files/edd41c2f-1bfa-43c8-907d-f1bbfd5c90b1.png")
+![composer install](https://mattkomarnicki.com/resources/files/edd41c2f-1bfa-43c8-907d-f1bbfd5c90b1.png)
 
 Refresh your browser now.
 ![refresh browser](https://mattkomarnicki.com/resources/files/ba8a3995-7dd5-4620-8397-5ce7168901cb.png)
