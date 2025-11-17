@@ -27,6 +27,7 @@ export default defineConfig({
       { text: "Archives", link: "/pages/archives" },
       { text: "Tags", link: "/pages/tags" },
       { text: "About", link: "/pages/about" },
+      { text: "Secret", link: "/pages/secret" },
     ],
     search: {
       provider: "local",
