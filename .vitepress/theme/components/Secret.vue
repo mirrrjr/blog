@@ -37,12 +37,12 @@ export default defineComponent({
         const data: Joke = await response.json();
 
         if (data.error) {
-          error.value = "Hazil topilmadi";
+          error.value = "Joke not found";
         } else {
           joke.value = data;
         }
       } catch (err) {
-        error.value = "Xatolik yuz berdi";
+        error.value = "An error occurred";
         console.error(err);
       } finally {
         loading.value = false;
@@ -66,7 +66,7 @@ export default defineComponent({
 <template>
   <div class="secret-block">
     <div class="joke-container">
-      <div v-if="loading" class="loading">Yuklanmoqda...</div>
+      <div v-if="loading" class="loading">Loading...</div>
 
       <div v-else-if="error" class="error">{{ error }}</div>
 
