@@ -121,6 +121,7 @@ export default defineComponent({
   font-weight: bold;
   margin-bottom: 15px;
   color: #333;
+  text-transform: lowercase;
 }
 
 .delivery {
@@ -128,6 +129,7 @@ export default defineComponent({
   color: #666;
   font-style: italic;
   margin-bottom: 20px;
+  text-transform: lowercase;
 }
 
 .single-joke {

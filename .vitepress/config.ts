@@ -14,7 +14,7 @@ export default defineConfig({
   ignoreDeadLinks: true,
   themeConfig: {
     posts: await getPosts(pageSize),
-    website: "https://mirrrjr.vercel.app",
+    website: "https://blog.mirrr.uz",
     // Comment repository address https://giscus.app/ Please overwrite after initializing according to the official instructions
     comment: {
       repo: "mirrrjr/blog",
@@ -22,12 +22,12 @@ export default defineConfig({
       categoryId: "DIC_kwDOPS_w_84CtbZn",
     },
     nav: [
-      { text: "Home", link: "/" },
-      { text: "Category", link: "/pages/category" },
-      { text: "Archives", link: "/pages/archives" },
-      { text: "Tags", link: "/pages/tags" },
-      { text: "About", link: "/pages/about" },
-      { text: "Secret", link: "/pages/secret" },
+      { text: "home", link: "/" },
+      { text: "category", link: "/pages/category" },
+      { text: "archives", link: "/pages/archives" },
+      { text: "tags", link: "/pages/tags" },
+      { text: "about", link: "/pages/about" },
+      { text: "secret", link: "/pages/secret" },
     ],
     search: {
       provider: "local",
@@ -41,11 +41,11 @@ export default defineConfig({
 
   srcExclude: isProd
     ? [
-        "**/trash/**/*.md", // 排除所有 trash 目录
-        "**/draft/**/*.md", // 递归排除子目录
-        "**/private-notes/*.md", // 排除特定文件
-        "README.md",
-      ]
+      "**/trash/**/*.md", // 排除所有 trash 目录
+      "**/draft/**/*.md", // 递归排除子目录
+      "**/private-notes/*.md", // 排除特定文件
+      "README.md",
+    ]
     : ["README.md"],
   vite: {
     //build: { minify: false }
