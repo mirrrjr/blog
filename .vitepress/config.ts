@@ -8,7 +8,7 @@ const isProd = process.env.NODE_ENV === "production";
 
 export default defineConfig({
   title: "MIRRR",
-  base: "/",
+  base: "/blog",
   cacheDir: "./node_modules/vitepress_cache",
   description: "vitepress,blog,blog-theme",
   ignoreDeadLinks: true,
