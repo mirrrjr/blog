@@ -1,6 +1,6 @@
 <template>
     <div class="site-footer">
-        mit licensed | copyright © 2021-2025 <a class="vitepress" :href="website">{{ webTitle }}</a>
+        MIT Licensed | Copyright © 2021-2025 <a class="vitepress" :href="website">{{ webTitle }}</a>
     </div>
 </template>
 <script lang="ts" setup>
@@ -23,6 +23,5 @@ const webTitle = site.value.title
 .vitepress {
     color: var(--vp-c-text-1);
     font-weight: 700;
-    text-transform: lowercase !important;
 }
 </style>

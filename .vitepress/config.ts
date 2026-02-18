@@ -22,12 +22,12 @@ export default defineConfig({
       categoryId: "DIC_kwDOPS_w_84CtbZn",
     },
     nav: [
-      { text: "home", link: "/" },
-      { text: "category", link: "/pages/category" },
-      { text: "archives", link: "/pages/archives" },
-      { text: "tags", link: "/pages/tags" },
-      { text: "about", link: "/pages/about" },
-      { text: "secret", link: "/pages/secret" },
+      { text: "Home", link: "/" },
+      { text: "Category", link: "/pages/category" },
+      { text: "Archives", link: "/pages/archives" },
+      { text: "Tags", link: "/pages/tags" },
+      { text: "About", link: "/pages/about" },
+      { text: "Secret", link: "/pages/secret" },
     ],
     search: {
       provider: "local",
