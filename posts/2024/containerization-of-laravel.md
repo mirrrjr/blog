@@ -3,13 +3,13 @@ date: 2024-07-17
 title: Create a Complete Dockerized Laravel Environment with PHP, Nginx, MySQL, Redis and Scheduler
 category: backend
 tags:
-    - php
-    - laravel
-    - nginx
-    - mysql
-    - redis
-    - scheduler
-    - docker
+  - php
+  - laravel
+  - nginx
+  - mysql
+  - redis
+  - scheduler
+  - docker
 description:
 ---
 

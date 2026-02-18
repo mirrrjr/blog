@@ -2,7 +2,7 @@ name: Deploy VitePress site to Pages
 
 on:
   push:
-    branches: [master] # Qaysi branch-ga push qilinganda ishga tushishi
+    branches: [master]
 
 permissions:
   contents: read
@@ -19,15 +19,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: 'npm' # yoki 'pnpm' / 'yarn'
+          cache: 'npm'
       - name: Install dependencies
         run: npm install
       - name: Build with VitePress
-        run: npm run build # Package.json dagi build skriptingiz
+        run: npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .vitepress/dist # VitePress build qiladigan papka
+          path: .vitepress/dist
 
   deploy:
     environment:

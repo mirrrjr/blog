@@ -9,7 +9,7 @@
 
     <p align="center">
       <samp>
-        <a href="https://blog.mirrr.uz/">blog</a> .
+        <!-- <a href="https://blog.mirrr.uz/">blog</a> . -->
         <a href="https://mirrr.uz/">portfolio</a> .
         <a href="https://www.linkedin.com/in/mirrrjr/">linkedin</a> .
         <a href="https://bsky.app/profile/mirrr.uz">bsky</a> .
@@ -29,24 +29,24 @@
       <tbody>
         <tr>
           <td align="center">
-            <img src="https://skillicons.dev/icons?i=typescript" />
-            <img src="https://skillicons.dev/icons?i=php" />
-            <img src="https://skillicons.dev/icons?i=rust" />
+            <img class="skils" src="https://skillicons.dev/icons?i=typescript" />
+            <img class="skils" src="https://skillicons.dev/icons?i=php" />
+            <img class="skils" src="https://skillicons.dev/icons?i=rust" />
           </td>
           <td align="center">
-            <img src="https://skillicons.dev/icons?i=laravel" />
-            <img src="https://skillicons.dev/icons?i=nestjs" />
-            <img src="https://skillicons.dev/icons?i=actix" />
+            <img class="skils" src="https://skillicons.dev/icons?i=laravel" />
+            <img class="skils" src="https://skillicons.dev/icons?i=nestjs" />
+            <img class="skils" src="https://skillicons.dev/icons?i=actix" />
           </td>
           <td align="center">
-            <img src="https://skillicons.dev/icons?i=mongodb" />
-            <img src="https://skillicons.dev/icons?i=postgresql" />
-            <img src="https://skillicons.dev/icons?i=mysql" />
+            <img class="skils" src="https://skillicons.dev/icons?i=mongodb" />
+            <img class="skils" src="https://skillicons.dev/icons?i=postgresql" />
+            <img class="skils" src="https://skillicons.dev/icons?i=mysql" />
           </td>
           <td align="center">
-            <img src="https://skillicons.dev/icons?i=linux" />
-            <img src="https://skillicons.dev/icons?i=git" />
-            <img src="https://skillicons.dev/icons?i=nix" />
+            <img class="skils" src="https://skillicons.dev/icons?i=linux" />
+            <img class="skils" src="https://skillicons.dev/icons?i=git" />
+            <img class="skils" src="https://skillicons.dev/icons?i=nix" />
           </td>
         </tr>
       </tbody>
@@ -100,5 +100,9 @@
 table {
   margin: 0;
   display: table;
+}
+
+.skils {
+  margin-top: 5px;
 }
 </style>
