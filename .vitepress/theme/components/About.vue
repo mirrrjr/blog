@@ -17,6 +17,26 @@
       </samp>
     </p>
 
+    <div class="resume">
+      <a
+        href="/asset/MirsoliMirsultonovResume.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="resume-btn view-btn"
+      >
+        View Resume
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+      <a
+        href="/asset/MirsoliMirsultonovResume.pdf"
+        download
+        class="resume-btn download-btn"
+        title="Download Resume"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 16l-6-6h4V4h4v6h4l-6 6z"/><path d="M20 18H4v2h16v-2z"/></svg>
+      </a>
+    </div>
+
     <table align="center">
       <thead>
         <tr>
@@ -85,6 +105,58 @@
 .links a {
   margin-right: 5px;
   margin-left: 5px;
+}
+
+.resume {
+  display: flex;
+  align-items: center;
+}
+.resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease, opacity 0.2s ease;
+  letter-spacing: 0.02em;
+}
+
+.resume-btn:hover {
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+/* View tugmasi — sahifadagi border/outlined stil bilan mos */
+.view-btn {
+  padding: 9px 18px;
+  margin-right: 5px;
+  background: transparent;
+  color: var(--vp-c-text-1, #e0e0e0);
+  border: 1px solid var(--vp-c-divider, #3a3a3a);
+}
+
+.view-btn:hover {
+  background: var(--vp-c-bg-soft, #1e1e1e);
+  border-color: var(--vp-c-text-2, #888);
+  color: var(--vp-c-text-1, #e0e0e0);
+}
+
+/* Download tugmasi — yashil accent (sahifadagi yashil rangga mos) */
+.download-btn {
+  padding: 9px 13px;
+  background: var(--vp-c-green-soft, rgba(16, 185, 129, 0.15));
+  color: var(--vp-c-green-1, #10b981);
+  border: 1px solid var(--vp-c-green-2, rgba(16, 185, 129, 0.3));
+}
+
+.download-btn:hover {
+  background: var(--vp-c-green-soft, rgba(16, 185, 129, 0.25));
+  border-color: var(--vp-c-green-1, #10b981);
+  opacity: 1;
 }
 
 .table-wrapper {
